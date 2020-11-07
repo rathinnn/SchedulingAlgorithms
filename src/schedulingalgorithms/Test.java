@@ -27,7 +27,7 @@ public class Test {
         s1.run();
         
         s1.printCt();
-*/
+
         
         Priority p1 = new Priority(5);
         p1.addP(new PCB(4,0,1));
@@ -39,6 +39,23 @@ public class Test {
         p1.run();
         
         p1.printCt();
-    }
     
+        
+        
+
+*/
+        
+        RRQueue r1 = new RRQueue(5,3);
+        r1.addP(new PCB(5,0));
+        r1.addP(new PCB(3,1));
+        r1.addP(new PCB(8,2));
+        r1.addP(new PCB(6,3));
+       
+        
+        r1.run();
+        
+        r1.printCt();
+    
+        
+    }
 }
