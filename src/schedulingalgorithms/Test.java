@@ -43,9 +43,9 @@ public class Test {
         
         
 
-*/
+
         
-        RRQueue r1 = new RRQueue(5,3);
+        RRQueue r1 = new RRQueue(3);
         r1.addP(new PCB(5,0));
         r1.addP(new PCB(3,1));
         r1.addP(new PCB(8,2));
@@ -55,6 +55,21 @@ public class Test {
         r1.run();
         
         r1.printCt();
+
+*/
+        MultiLevelQ m1 = new MultiLevelQ();
+        m1.addP(new PCB(8,0),1);
+        m1.addP(new PCB(3,0),1);
+        m1.addP(new PCB(4,0),2);
+        
+       
+        
+        m1.run();
+        
+        m1.printCt();
+
+        
+        
     
         
     }

@@ -16,10 +16,10 @@ public class RRQueue {
     int numofp;
     int cur=0;
     
-    static int t=0;
+    int t=0;
     ArrayList<PCB> readyq;
     
-    RRQueue(int n,int q){
+    RRQueue(int q){
         numofp=0;
         readyq=new ArrayList<>();
         this.q=q;
@@ -37,6 +37,9 @@ public class RRQueue {
       
         
     }
+    
+    
+    
     
    
     
