@@ -14,6 +14,21 @@ public class PCB {
     long pid;
     int arrivaltime;
     int completiontime;
+    int priority;
+    
+    PCB(int bt,int at){
+        bursttime=bt;
+        arrivaltime=at;
+        completiontime = -1;
+        priority=-1;
+    }
+    
+    PCB(int bt,int at,int pr){
+        bursttime=bt;
+        arrivaltime=at;
+        completiontime = -1;
+        priority=pr;
+    }
     
     public int turnar(){
         return completiontime-arrivaltime;

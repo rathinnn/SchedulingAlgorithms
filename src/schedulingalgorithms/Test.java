@@ -16,6 +16,29 @@ public class Test {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        /*
+        SRTF s1 = new SRTF(5);
+        s1.addP(new PCB(6,2));
+        s1.addP(new PCB(2,5));
+        s1.addP(new PCB(8,1));
+        s1.addP(new PCB(3,0));
+        s1.addP(new PCB(4,4));
+        
+        s1.run();
+        
+        s1.printCt();
+*/
+        
+        Priority p1 = new Priority(5);
+        p1.addP(new PCB(4,0,1));
+        p1.addP(new PCB(3,0,2));
+        p1.addP(new PCB(7,6,1));
+        p1.addP(new PCB(4,11,3));
+        p1.addP(new PCB(2,12,2));
+        
+        p1.run();
+        
+        p1.printCt();
     }
     
 }
