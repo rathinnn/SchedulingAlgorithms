@@ -78,7 +78,7 @@ public class Priority {
             
             i=select();
             if(i==-2){
-                
+                System.out.print(t+"|     |");
                 t++;
       
             }
@@ -86,6 +86,7 @@ public class Priority {
                 break;
             }
             else{
+                System.out.print(t+"|  "+readyq[i].pid+"   |");
                 forward(readyq[i]);
             }
         }

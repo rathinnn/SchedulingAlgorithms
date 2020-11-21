@@ -69,13 +69,17 @@ public class SRTF {
             i=select();
             if(i==-2){
                 
+                System.out.print(t+"|     |");
                 t++;
+                
       
             }
             else if(i==-1){
                 break;
             }
             else{
+                
+                System.out.print(t+"|  "+readyq[i].pid+"   |");
                 forward(readyq[i]);
             }
         }

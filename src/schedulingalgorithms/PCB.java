@@ -38,6 +38,22 @@ public class PCB {
         pid=pidc;
     }
     
+    PCB(int bt,int at,boolean f){
+        bursttime=bt;
+        arrivaltime=at;
+        completiontime = -1;
+        if(f==false){
+            pid=-1;
+        }
+        else{
+            
+        
+        pidc++;
+        pid=pidc;
+    
+        }
+    }
+    
     public int turnar(){
         return completiontime-arrivaltime;
     }
