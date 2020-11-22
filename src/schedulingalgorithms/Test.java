@@ -69,19 +69,10 @@ public class Test {
         m1.printCt();
 
  
-        SJF.run();
+        
       */
+        FCFS.run();
         
-        Priority p1 = new Priority(5);
-        p1.addP(new PCB(4,0,1));
-        p1.addP(new PCB(3,0,2));
-        p1.addP(new PCB(7,6,1));
-        p1.addP(new PCB(4,11,3));
-        p1.addP(new PCB(2,12,2));
         
-        p1.run();
-    
-        System.out.println();
-        p1.printCt();
     }
 }
