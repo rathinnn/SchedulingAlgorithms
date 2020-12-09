@@ -27,6 +27,7 @@ public class RRQueue {
     
     public void addP(PCB ad){
         readyq.add(ad);
+        
         numofp++;
     }
     
@@ -50,8 +51,10 @@ public class RRQueue {
         for (PCB u : readyq){
             if(u.completiontime==-1){
                 if(u.arrivaltime<=t){
+                    System.out.print("["+t+"] "+u.pid+" ");
                     t=t+Math.min(q, u.bursttime);
                     u.bursttime=u.bursttime-Math.min(q, u.bursttime);
+                    
                     ret=0;
                 
                     if(u.bursttime==0){
@@ -74,9 +77,11 @@ public class RRQueue {
         while(flag!=-1){
             flag=oneiter();
             if(flag==-2){
+                System.out.print(t+"[     ]");
                 t=t+1;
             }
         }
+        System.out.print("["+t+"]");
     }
     
     public void printCt(){
@@ -87,6 +92,8 @@ public class RRQueue {
         }
         
     }
+    
+    
     
 }
 

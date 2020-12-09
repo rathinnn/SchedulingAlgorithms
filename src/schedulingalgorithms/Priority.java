@@ -12,7 +12,7 @@ package schedulingalgorithms;
 public class Priority {
     int numofp;
     PCB[] readyq;
-    static int t=0;
+    int t=0;
     
     Priority(int n){
         numofp=0;
@@ -24,15 +24,7 @@ public class Priority {
         readyq[numofp]=ad;
         numofp++;
     }
-    public boolean check(){
-        for (int i = 0;i<readyq.length;i++){
-            if(readyq[i].completiontime!=-1){
-                return false;
-            }
-            
-        }
-        return true;
-    }
+    
     public int select(){
         int min = Integer.MAX_VALUE;
         int ret = -1;
@@ -53,6 +45,7 @@ public class Priority {
                         min=readyq[i].priority;
                         ret=i;
                     }
+                    
                 
                }
                
@@ -73,12 +66,13 @@ public class Priority {
     
     public void run(){
         int i;
+        
         while(true){
             
             
             i=select();
             if(i==-2){
-                System.out.print(t+"|     |");
+                System.out.print(t+"[     ]");
                 t++;
       
             }
@@ -86,10 +80,13 @@ public class Priority {
                 break;
             }
             else{
-                System.out.print(t+"|  "+readyq[i].pid+"   |");
+                System.out.print("["+t+"] "+readyq[i].pid+" ");
                 forward(readyq[i]);
             }
+            
+            
         }
+        System.out.print("["+t+"]");
         
         
     }
@@ -100,6 +97,19 @@ public class Priority {
             
             
         }
+        
+    }
+    
+    public double avgWt(){
+        int sum = 0;
+        for (int i = 0;i<readyq.length;i++){
+            sum=sum+readyq[i].waitt();
+            
+            
+            
+        }
+        
+        return sum/(double)numofp;
         
     }
 }

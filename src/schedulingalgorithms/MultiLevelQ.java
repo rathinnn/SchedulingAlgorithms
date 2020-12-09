@@ -17,7 +17,7 @@ public class MultiLevelQ {
     MultiLevelQ(){
         q1=new RRQueue(3);
         q2=new RRQueue(4);
-        q3=new RRQueue(1);
+        q3=new RRQueue(100);
         
     }
     
@@ -44,6 +44,7 @@ public class MultiLevelQ {
             PCB u=q1.readyq.get(i);
             if(u.completiontime==-1){
                 if(u.arrivaltime<=q1.t){
+                    System.out.print("["+q1.t+"] "+u.pid+" ");
                     q1.t=q1.t+Math.min(q1.q, u.bursttime);
                     u.bursttime=u.bursttime-Math.min(q1.q, u.bursttime);
                     ret=0;
@@ -76,6 +77,7 @@ public class MultiLevelQ {
             PCB u=q2.readyq.get(i);
             if(u.completiontime==-1){
                 if(u.arrivaltime<=q2.t){
+                    System.out.print("["+q2.t+"] "+u.pid+" ");
                     q2.t=q2.t+Math.min(q2.q, u.bursttime);
                     u.bursttime=u.bursttime-Math.min(q2.q, u.bursttime);
                     ret=0;
@@ -108,6 +110,7 @@ public class MultiLevelQ {
         for (PCB u : q3.readyq){
             if(u.completiontime==-1){
                 if(u.arrivaltime<=q3.t){
+                    System.out.print("["+q3.t+"] "+u.pid+" ");
                     q3.t=q3.t+Math.min(q3.q, u.bursttime);
                     u.bursttime=u.bursttime-Math.min(q3.q, u.bursttime);
                     ret=0;
@@ -134,6 +137,7 @@ public class MultiLevelQ {
         while(flag!=-1){
             flag=iterforLevel1();
             if(flag==-2){
+                System.out.print(q1.t+"[     ]");
                 q1.t=q1.t+1;
             }
         }
@@ -142,6 +146,7 @@ public class MultiLevelQ {
         while(flag!=-1){
             flag=iterforLevel2();
             if(flag==-2){
+                System.out.print(q2.t+"[     ]");
                 q2.t=q2.t+1;
             }
         }
@@ -150,9 +155,11 @@ public class MultiLevelQ {
         while(flag!=-1){
             flag=iterforLevel3();
             if(flag==-2){
+                System.out.print(q3.t+"[     ]");
                 q3.t=q3.t+1;
             }
         }
+        System.out.print("["+q3.t+"]");
     }
      
      public void printCt(){

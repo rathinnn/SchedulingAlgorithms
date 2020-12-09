@@ -15,10 +15,12 @@ public class PCB {
     int arrivaltime;
     int completiontime;
     int priority;
+    int bursttimestatic;
     static int pidc = 0;
     
     PCB(int bt,int at){
         bursttime=bt;
+        bursttimestatic=bt;
         arrivaltime=at;
         completiontime = -1;
         priority=-1;
@@ -31,6 +33,7 @@ public class PCB {
     
     PCB(int bt,int at,int pr){
         bursttime=bt;
+        bursttimestatic=bt;
         arrivaltime=at;
         completiontime = -1;
         priority=pr;
@@ -40,6 +43,7 @@ public class PCB {
     
     PCB(int bt,int at,boolean f){
         bursttime=bt;
+        bursttimestatic=bt;
         arrivaltime=at;
         completiontime = -1;
         if(f==false){
@@ -58,7 +62,7 @@ public class PCB {
         return completiontime-arrivaltime;
     }
     public int waitt(){
-        return (turnar()-bursttime);
+        return (turnar()-bursttimestatic);
     }
     
     

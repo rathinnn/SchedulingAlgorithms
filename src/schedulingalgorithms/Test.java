@@ -70,8 +70,32 @@ public class Test {
 
  
         
-      */
-        FCFS.run();
+      
+        SJF s1 = new SJF(5);
+        s1.addP(new PCB(6,2));
+        s1.addP(new PCB(2,5));
+        s1.addP(new PCB(8,1));
+        s1.addP(new PCB(3,0));
+        s1.addP(new PCB(4,4));
+        
+        s1.run();
+        System.out.println();
+        
+        System.out.println(s1.avgWt());
+
+*/
+        PriorityNon s1 = new PriorityNon(5);
+        s1.addP(new PCB(10,0,3));
+        s1.addP(new PCB(1,0,1));
+        s1.addP(new PCB(2,0,4));
+        s1.addP(new PCB(1,0,5));
+        s1.addP(new PCB(5,0,2));
+        
+        s1.run();
+        System.out.println();
+        
+        System.out.println(s1.avgWt());
+        
         
         
     }

@@ -9,12 +9,12 @@ package schedulingalgorithms;
  *
  * @author dell
  */
-public class SRTF {
+public class PriorityNon {
     int numofp;
     PCB[] readyq;
     int t=0;
     
-    SRTF(int n){
+    PriorityNon(int n){
         numofp=0;
         readyq=new PCB[n];
         
@@ -24,20 +24,31 @@ public class SRTF {
         readyq[numofp]=ad;
         numofp++;
     }
-   
+    
     public int select(){
         int min = Integer.MAX_VALUE;
         int ret = -1;
         
         for (int i = 0;i<readyq.length;i++){
-            if(readyq[i].bursttime<min && readyq[i].completiontime==-1 ){
+            if(readyq[i].priority<min && readyq[i].completiontime==-1 ){
                if(readyq[i].arrivaltime<=t){
-                min=readyq[i].bursttime;
+                min=readyq[i].priority;
                 ret=i;
                }
                else if(min==Integer.MAX_VALUE){
                    ret=-2;
                }
+            }
+            else if(readyq[i].priority==min && readyq[i].completiontime==-1 ){
+                if(readyq[i].arrivaltime<=t){
+                    if(readyq[ret].arrivaltime>readyq[i].arrivaltime){
+                        min=readyq[i].priority;
+                        ret=i;
+                    }
+                    
+                
+               }
+               
             }
         }
         
@@ -55,25 +66,28 @@ public class SRTF {
     
     public void run(){
         int i;
+        
         while(true){
             
             
             i=select();
             if(i==-2){
-                
                 System.out.print(t+"[     ]");
                 t++;
-                
       
             }
             else if(i==-1){
                 break;
             }
             else{
-                
+                while(readyq[i].completiontime==-1){
                 System.out.print("["+t+"] "+readyq[i].pid+" ");
                 forward(readyq[i]);
+                }
+                
             }
+            
+            
         }
         System.out.print("["+t+"]");
         
@@ -96,10 +110,9 @@ public class SRTF {
             
             
             
-            
         }
+        
         return sum/(double)numofp;
         
     }
-    
 }
