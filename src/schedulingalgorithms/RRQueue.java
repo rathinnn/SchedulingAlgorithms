@@ -79,7 +79,7 @@ public class RRQueue {
         while(flag!=-1){
             flag=oneiter();
             if(flag==-2){
-                System.out.print("["+t+"]"+" ");
+                System.out.print("["+t+"]"+"  ");
                 t=t+1;
             }
         }

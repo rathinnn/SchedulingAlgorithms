@@ -66,7 +66,7 @@ public class FCFS {
             i=select();
             if(i==-2){
                 
-                System.out.print(t+"[     ]");
+                System.out.print("["+t +"]  ");
                 t++;
                 
       
