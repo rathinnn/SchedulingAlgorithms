@@ -9,7 +9,7 @@ package schedulingalgorithms;
  *
  * @author dell
  */
-public class PCB {
+public class PCB implements Comparable {
     int bursttime;
     long pid;
     int arrivaltime;
@@ -41,6 +41,16 @@ public class PCB {
         pid=pidc;
     }
     
+    PCB(int bt,int at,int pr,int pid){
+        bursttime=bt;
+        bursttimestatic=bt;
+        arrivaltime=at;
+        completiontime = -1;
+        priority=pr;
+        
+        this.pid=pid;
+    }
+    
     PCB(int bt,int at,boolean f){
         bursttime=bt;
         bursttimestatic=bt;
@@ -63,6 +73,16 @@ public class PCB {
     }
     public int waitt(){
         return (turnar()-bursttimestatic);
+    }
+    
+    
+   
+
+    @Override
+    public int compareTo(Object o) {
+       int compare=((PCB)o).arrivaltime;
+        
+        return this.arrivaltime-compare;
     }
     
     

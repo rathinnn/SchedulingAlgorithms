@@ -137,7 +137,7 @@ public class MultiLevelQ {
         while(flag!=-1){
             flag=iterforLevel1();
             if(flag==-2){
-                System.out.print(q1.t+"[     ]");
+                System.out.print("["+q1.t+"]"+" ");
                 q1.t=q1.t+1;
             }
         }
@@ -146,7 +146,7 @@ public class MultiLevelQ {
         while(flag!=-1){
             flag=iterforLevel2();
             if(flag==-2){
-                System.out.print(q2.t+"[     ]");
+                System.out.print("["+q2.t+"]"+" ");
                 q2.t=q2.t+1;
             }
         }
@@ -155,7 +155,7 @@ public class MultiLevelQ {
         while(flag!=-1){
             flag=iterforLevel3();
             if(flag==-2){
-                System.out.print(q3.t+"[     ]");
+                System.out.print("["+q3.t+"]"+" ");
                 q3.t=q3.t+1;
             }
         }

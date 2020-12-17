@@ -24,6 +24,8 @@ public class SRTF {
         readyq[numofp]=ad;
         numofp++;
     }
+    
+    
    
     public int select(){
         int min = Integer.MAX_VALUE;

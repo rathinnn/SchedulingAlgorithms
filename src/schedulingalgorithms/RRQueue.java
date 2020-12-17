@@ -6,6 +6,7 @@
 package schedulingalgorithms;
 import java.util.ArrayList;
 import java.lang.Math;
+import java.util.Collections;
 
 /**
  *
@@ -28,6 +29,7 @@ public class RRQueue {
     public void addP(PCB ad){
         readyq.add(ad);
         
+        
         numofp++;
     }
     
@@ -38,7 +40,6 @@ public class RRQueue {
       
         
     }
-    
     
     
     
@@ -73,11 +74,12 @@ public class RRQueue {
     }
     
     public void run(){
+        Collections.sort(readyq);
         int flag = -2;
         while(flag!=-1){
             flag=oneiter();
             if(flag==-2){
-                System.out.print(t+"[     ]");
+                System.out.print("["+t+"]"+" ");
                 t=t+1;
             }
         }
@@ -93,6 +95,18 @@ public class RRQueue {
         
     }
     
+    public double avgWt(){
+        int sum = 0;
+        for (int i = 0;i<readyq.size();i++){
+            sum=sum+readyq.get(i).waitt();
+            
+            
+            
+        }
+        
+        return sum/(double)numofp;
+        
+    }
     
     
 }
